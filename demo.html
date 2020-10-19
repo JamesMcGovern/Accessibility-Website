@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        
+        <link rel="shortcut icon" href="favicon.ico">
+
+		
+    <title>Accessibility Options for a Webmaster</title>
+   	 	
+	</head>
+
+<body class='center'>
+    <script src="default.js"></script>
+    <a id="top"></a>
+	<div id="wrapper">
+    <header>
+        <h6>ci347 Assessment</h6>
+	</header>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html">What is Accessibility?</a>
+      <a href="demo.html">Integrating Accessibility</a>
+      <a href="apache.html">Setting up Apache</a>
+      <a href="reflection.html">Reflection</a>
+    </div>
+    <!-- Use any element to open the sidenav -->
+    <button class="bCenter" onclick="togNav()" type="button">Menu</button>
+
+    
+    <main>
+        <section>
+            
+            
+        <article>
+			<header>
+			<h4>Integrating Accessbility</h4>
+			</header>
+			<fieldset>
+            <legend>Alt Text</legend>
+            <p>This stands for alternative text. This is most often used to simply describe some media on a site without use of complex language. The reason for this is because the alt text is read out, with the use of a screen reader, for those that are unable to see the resource themselves thus need a way to identify what it consists of.
+            </p>
+            <h5>Implementation of Alt Text</h5>
+            <p>
+                Alt text is very simple to add to a site but must be considered when choosing what the alt text says.<br>
+                When adding an image you use the <code>&lt;img&gt;</code> tag. This tag then has an <code>alt</code> attribute that can be used to create the alt text. For Example:
+                <br>
+                <code>alt="Grey Wolf Howling"</code>
+                <br>
+                Alt text will show when the image's source cannot be found or with software that can retrieve alt text. Below we have two images with alt text, however on the right there is no image source, meaning the alt text is shown instead.
+                </p>
+                <br>
+                <img class="fleft" src="images/greywolf.jpg" height="300" width="450" alt="Grey Wolf Howling">
+                <img class="fright" src="" height="300" width="450" alt="Grey Wolf Howling">
+                <br/><br/>
+                <p style="clear:left;">
+                This alt text isn't completely descriptive but it's to the point and still explains what the image contains. This is the type of alt text required and is good practice.
+                <br/><br/>
+                Bad practice would be to include alt text that is too vague, too long and complicated (with lots of jargon) or not including any alt text at all.
+                <br/>
+                The following is bad alt text for the same image.
+                <br/>
+                <code>alt=""</code>
+                <br/>
+                <code>alt="wolf"</code>
+                <br/>
+                <code>alt="Wolf coloured with different shades of grey, white and black looks skyward with eyes closed and howls."</code>
+                <br><br>
+                For obvious reasons these alt text decisions aren't great, and considering a user that is hard of sight, these explanations of the image would be very unhelpful.
+            </p>
+            </fieldset>
+            <br/>
+            <fieldset>
+            <legend>Web-Safe Colours</legend>
+            <p>
+            One very important accessibility feature that is often forgotten is the colour scheme of the site. Many users could have a form of colour blindness, with this in mind the colours chosen must either be universally identifiable colours, or the site must have the option to change the colour scheme where necessary.
+            <br/><br/>
+            There are 3 main types of colour blindness;
+            <ul>
+                <li><span onclick="changeImage('images/Protanopia.png')"> Protanopia</span> - This is also known as a blindness to the colour red, leaving the ability to only see blue and green.</li>
+                <li><span onclick="changeImage('images/Deuteranopia.png')">Deuteranopia</span> - This is known as blindness to the colours Red and Green, leaving the eyes to absorb only blue.</li>
+                <li><span onclick="changeImage('images/Tritanopia.png')">Tritanopia</span> - This is know as blindness to the colours Blue and yellow but are able to identify red and green.</li>
+            </ul>
+            </p>
+            <p><i>Click the names of the type of colour blindness above to see the differences between each of them compared to normal vision!</i></p>
+            
+            <img src="images/normal.png" />
+            &nbsp;&nbsp;
+            <img id="change" src="images/Protanopia.png" />
+            </fieldset>
+        
+            <br/>
+            <fieldset>
+            <legend>Structuring Tags Correctly</legend>
+            <p>
+            HTML tags are there for a reason and must be used in the structure that they were intended. Keeping headings as headings, nesting the correct paragraph tags inside the current div/section tags to keep things organised is very important. Doing this makes the site a lot easier to follow and understand.
+            <br/><br/>
+            The reason this is so important to follow from an accessibility standpoint is because of the layout issue. If a site is hard to follow for a user, it implies bad web design and massive confusion for said user. This error then becomes worse when a user that struggles with a disabality such as their learning attempts to use the site.
+            <br/><br/>
+            The following is an example of good practice when it comes to HTML tags:
+            </p>
+            
+            <img src="images/htmlstructure.jpg" alt="An example of how HTML for a web page should be structured." />
+            <p>
+                <cite>(Jugaduu)</cite>
+                <br/><br/>
+                The above image is a good example of a basic HTML structure. Judging from the attached diagram of what the page would look like, it is clear to tell what each part of the page is for and where it is located.
+                <br/>
+                A couple of major points to consider would be indentation, closing all tags and understanding the difference between the head and body. Indentation allows the webmaster to see the layout of the code a lot more clearly which greatly improves development. Closing tags ensures the site will display correctly and function how you intend it to without breaking everything. Finally, the head and body function in different ways and must be understood before developing. The head is for the more 'backend' or 'behind the curtain' HTML that isn't displayed on the web page itself. The body is where everything is displayed to the web page and can be seen by the end user.
+            </p>
+            
+            </fieldset>
+            <br/>
+            <fieldset>
+            <legend>Functionality</legend>
+            <p>
+            One key point here is access through mouse and keyboard. If the site cannot be navigated through mouse and keyboard, this is a massive breach of accessibility as many users will have to rely on a single type of functionality that may not be native to them or could be something they cannot use in the first place. Good site structure also helps with this as it allows keyboard users to easily navigate through the site without use of a mouse.
+            <br/><br/>
+            The main point to bring home here is correct tag structure as this will allow a user to use <i>TAB</i> and <i>ENTER</i> to navigate and use each button and 'clickable' feature throughout the site.
+            <br/>
+            Also, as keyboard navigation uses outlines as a way to see which part of the site is currently selected, it is important to note that this outline can be changed in any way you want. The web browser will provide a default look for this but if there is a clash with colour scheme or you believe the outline is too thin to see against your site, the look can be changed within your CSS.
+            <br/>
+            Almost all items on the page that can be clicked by a mouse can be targeted by a keyboard too. However, some custom made widgets and items on the site may be invisible to the keyboard navigation. This means that the site must be thoroughly tested for keyboard accessibility.
+            <br/>
+            WebAIM have a great article <a src="https://webaim.org/techniques/keyboard/">here</a> that show how to test for keyboard functionality.
+            </p>
+            </fieldset>
+            <br/>
+            <fieldset>
+            <legend>Assisting Screen Readers</legend>
+            <p>
+            Screen readers are very important to visually impaired users as it helps them understand what is being presented on the screen. Making sure that you use the correct syntax and well worded descriptions for everything is key. One important addition that is greatly overlooked is the <Code>caption</Code> tag for tables. This allows a screen reader to find the title of a table with ease without just a simple visual indication of what the table is all about.
+            <br/><br/>
+            Another simple feature that can be added to assist a screen reader is the pages language(s). Within the <code>HTML</code> tag there is an attribute called <code>lang</code> that can be added and assigned to a language. An example of this would be <code>&lt;html lang="en"&gt;</code> to tell the screen reader the site is in english.
+            <br/><br/>
+            Screen readers are also another reason why tags should be correctly structured and implemented. The reader will read out the content along with the title granted to that section of the page. As an example, if the title is simply put within the <code>p</code> tag instead of being declared as a title or a heading, this could confuse the user as there would be no explanation of said section and the title would be fused into one sentence with the rest of the text.
+            </p>
+            </fieldset>
+            </article>
+        </section>
+        
+        <section>
+        
+        	<h2>REFERENCES</h2>
+            
+            	<ol>
+                	<li>Jugaduu. (2015). HTML. Available at: <cite><a href="https://alleasytricks.wordpress.com/2015/02/05/what-is-html/" target="_blank">What is HTML</a></cite> [online]</li>
+                </ol>
+        </section>    
+    
+    </main>
+
+	<footer>
+        <p><a href="#top">Go to top</a></p>
+		<small>© 2020, James Beck McGovern.</small>
+	</footer>
+
+	</div>
+</body></html>

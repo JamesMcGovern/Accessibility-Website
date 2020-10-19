@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        
+        <link rel="shortcut icon" href="favicon.ico">
+
+		
+    <title>Accessibility Options for a Webmaster</title>
+   	 	
+	</head>
+
+<body class='center'>
+    <script src="default.js"></script>
+    <a id="top"></a>
+	<div id="wrapper">
+    <header>
+        <h6>ci347 Assessment</h6>
+	</header>
+
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html">What is Accessibility?</a>
+      <a href="demo.html">Integrating Accessibility</a>
+      <a href="apache.html">Setting up Apache</a>
+      <a href="reflection.html">Reflection</a>
+    </div>
+    <!-- Use any element to open the sidenav -->
+    <button class="bCenter" onclick="togNav()" type="button">Menu</button>
+
+    
+
+    
+    <main>
+        <section>
+            
+            
+        <article>
+			<header>
+			<h4>Setting up Apache</h4>
+			</header>
+                <fieldset>
+                    <legend>First Setup</legend>
+                    <p>
+                        <strong>NOTE</strong>: For the purposes of this set up I will be using the M drive but the usual will most likely be the C drive.
+                        <br/><br/>
+                        When setting up apache you need to first gain the correct files. There should be access to the apache web server files <a href="https://httpd.apache.org/download.cgi" target="_new">here</a> that come in a zipped folder. Once you have access to these, you will be able save them somewhere in your preferred drive.
+                        <br/><br/>
+                        Once saved, navigate to the root directory (the apache folder) and find the <code>conf</code> folder.
+                        <br/><br/>
+                        Inside that folder you will find a file called <code>httpd.conf</code>. Open this file in your preferred text editor.
+                        <br/><br/>
+                        (<strong>NOTE</strong>: If asked to ‘always use this application for this type of file’, choose no)
+                        <br/><br/>
+                        Now, inside the file there are some changes that I had to make in order to run the server. You may not have to make these changes, but I will show them to give an idea of what this file can do.
+                        <br/><br/>
+                         Firstly, find the <code>Define SRVROOT</code> line of the file, this defines where you have put the apache files. As previously mentioned, I have changed the root drive of my directories but yours could still be there default of “c:/apache”. If not, then change this path inside the quotes.
+                         <br/><br/>
+                        (<strong>NOTE</strong>: Unlike windows, apache is a linux based system which means it uses / instead of \ for paths on the drive.)
+                        <br/><br/>
+                        Now that this is defined, most users will be able to move on and run apache now, although if you want to produce your own web pages be sure to head into the <code>htdocs</code> folder and add your desired files. Everything in this folder is what is shown front-end.
+                        <br/><br/>
+                        (<strong>NOTE</strong>: This next part is only really necessary to those that are already running on a server as the default port of 80 will already be in use).
+                        <br/><br/>
+                        The change for this is simple, locate the <code>Listen 80</code> and change this to something else, such as 8080, this will allow apache to run on a port on its own.
+                    </p>
+                    
+                </fieldset>
+                
+                <br/><br/>
+                
+            <fieldset>
+                    <legend>Starting and Stopping Apache</legend>
+                    <p>
+                        <strong>To Start Apache:</strong>
+                        <br/><br/>
+                        First thing you must do, once your command line is open, is set your directory. As previously said, in my case this is M. So I type:
+                        <br/><br/>
+                        <code>M: *press enter*</code> (This sets the correct drive) 
+                        <br/>
+                        <code>cd\apache\bin *press enter*</code> (This sets the correct folder) 
+                        <br/>
+                        <code>httpd *press enter*</code> (This runs apache)
+                        <br/><br/>
+                        <img src="images/astart.png" alt="A command prompt window displaying apache start up" />
+                        <br/><br/>
+                        When apache is running, head to any browser and type in <code>localhost</code> or <code>localhost:8080</code>, depending on if you changed the port. This will take you straight to your index page.
+                        <br/><br/>
+                        <strong>To stop apache:</strong>
+                        <br/><br/>
+                        *Press ctrl (control) and C together*
+                        <br/><br/>
+                        (<strong>NOTE:</strong> This may take a couple attempts for it to fully take effect).
+                        <br/><br/>
+                        <img src="images/astop.png" alt="A command prompt window displaying apache shut down" />
+
+                    </p>
+                    
+                </fieldset>
+                
+                <br/><br/>
+                
+                <fieldset>
+                    <legend>Apache's Directories</legend>
+                    <p>
+                        
+                    The following is a list of useful directories given by apache, I have also included any user made ones that could be useful and isn’t supplied by apache.
+                        <br/><br/>
+                        <strong>Bin</strong> – This folder is full of executable files that can help you implement useful features into your server, the most useful of which is the one that actually runs the server, <code>httpd.exe</code>.
+                        <br/><br/>
+                        <strong>conf</strong> – The config folder contains many files that can be used to configure almost anything within the apache server. The most commonly used file is the <code>httpd.conf</code> file, this will be where you go to change pretty much anything you want within the server, such as; root directory, port, where logs are stored, users, groups and more.
+                        <br/><br/>
+                        <strong>htdocs</strong> – This directory is where you produce your site/web content. Any front or back end material should be placed here as no other directory will be used to do this, unless changed by the user within the config files.
+                        <br/><br/>
+                        <strong>Logs</strong> – The log folder gives the feedback from the server, whether it be feedback that the server is working and has made secure connections or instead returns errors. If anything fails, it is best practice to head to the error logs to figure out why. New log files can also be created here if the user wants any custom logs produced.
+                        <br/><br/>
+                        <strong>pw</strong> – Now this folder is user made, it is very handy when you want to store the users and their passwords. The users allow access to certain areas of the site and can separate standard users from staff/admin. Storing the passwords in a separate folder just makes them slightly more secure.
+                    </p>
+                </fieldset>
+                
+                <br/><br/>
+                
+                <fieldset>
+                    <legend>Securing Apache</legend>
+                    <p>
+                        <strong>Users</strong>
+                        <br/><br/>
+                        Securing the server means adding authentication to users before they can access certain areas. This is done by making users or groups (a group of users that have the same access). 
+                        <br/><br/>
+                        It is best to first create the folder structure within <code>htdocs</code> to determine who will have access to which section.
+                        <br/><br/>
+                        <img src="images/ausers.png" />
+                        <br/><br/>
+                        Here I have created separate folders, each with different web content in them.
+                        <br/><br/>
+                        From here we can start creating our users.
+                        <br/><br/>
+                        Head to your command prompt and navigate to the bin folder once again, but this time don’t run apache.
+                        <br/><br/>
+                        Instead type, <code>htpasswd -c *filename* *username*</code> *Press Enter*
+                        <br/><br/>
+                        To break this down, <code>htpasswd</code> is the executable file we’re calling to run the command. <code>-c</code> creates the file (<strong>NOTE</strong>: You can leave this out if you want to add to an existing file.). Then <code>filename</code> and <code>username</code> are simply what you want to call the file and the user.
+                        <br/><br/>
+                        You will then be asked to create a password, this will be entered twice to ensure the correct password.
+                        <br/><br/>
+                        Now what you want to do is move this newly created file from the bin folder, to a new folder within the root directory, such as <code>pw</code>.
+                        <br/><br/>
+                        Now in order to secure this as a user, you must head to the <code>httpd.conf</code> file and head to any space after a <code>Directory</code> tag has been created and add your own. It should be structured as follows:
+                        <br/><br/>
+                        <img src="images/auserconf.png" />
+                        <br/><br/>
+                        This officially sets up the user.
+                    </p>
+                    
+                    <p>
+                        <strong>Groups</strong>
+                        <br/><br/>
+                        Groups allow many users to be placed within one file, this makes giving access to many users a lot simpler. It also means that whenever a new user is added, it can be added directly to the group file.
+                        <br/><br/>
+                        To set up a group you must first create a group file yourself, call this a useful name and make it a standard file. This will be stored in the new <code>pw</code> folder.
+                        <br/><br/>
+                        Coming back to that file later, you must next create some more users! Grab the original user file and move it back to the <code>bin</code> folder and run the <code>htpasswd *filename* *username*</code>, notice I didn’t include <code>-c</code>, this is because we want multiple users here. Be sure to choose a different username to the previous.
+                        <br/><br/>
+                        Now move this file back to the <code>pw</code> folder and open the group file, in here we must call the users we want. Type <code>*groupname*:*username* *username*</code>, this creates the file and includes the users.
+                        <br/><br/>
+                        Finally, you want to call this file from the config. Open up <code>httpd.conf</code> and head to where the user was created previously. Now make a new directory tag and do as follows:
+                        <br/><br/>
+                        <img src="images/agroupconf.png" />
+                        <br/><br/>
+                        The groups are now created.
+                    </p>
+                </fieldset>
+                
+                <br/><br/>
+            
+                <fieldset>
+                    <legend>Common HTML Codes</legend>
+                    <p>
+                        Some common HTML codes include:
+                        <br/><br/>
+                        <strong>200</strong> – This code means OK, as in there have been no issues.
+                        <br/><br/>
+                        <strong>500</strong> – Internal Server Error. This is produced when there has been an issue server-side.
+                        <br/><br/>
+                        <strong>404</strong> – Resource not Found. This is produced when then has been a request for a certain resource that does not exist.
+                        <br/><br/>
+                        <strong>403</strong> – Forbidden. This code is not as common but is produced when access is strictly not allowed.
+                        <br/><br/>
+                        <strong>401</strong> – Unauthorised. This is produced when you are not allowed to access that web page under the current login/user.
+                    </p>
+                </fieldset>
+                
+                <br/><br/>
+                
+                <fieldset>
+                    <legend>Local Redirect Error Documents</legend>
+                    <p>
+                        This allows you to customise what is produced to the site when a certain error is thrown, in this example I will use a 404 error, but any code can be used here.
+                        <br/><br/>
+                        First off you want to make sure that you have a web page created that matches your house style and includes information on what the error produced was and useful links to get back to the site if need be.
+                        <br/><br/>
+                        Open the <code>httpd.conf</code> file and scroll until your find <code>ErrorDocument</code>. Add or change a line here to represent what you want to produce; my example is as follows:
+                        <br/><br/>
+                        <img src="images/aerror.png" />
+                    </p>
+                </fieldset>
+                
+                <br/><br/>
+                
+                <fieldset>
+                    <legend>Logs</legend>
+                    <p>
+                        <strong>Log File Types</strong>
+                        <br/><br/>
+                        The default and any Custom-made log files can be found within the <code>logs</code> folder. How to create custom logs will be described in the next section. The default logs found in this folder are your:
+                        <br/>
+                        </p>
+                        <ul>
+                            <li><code>install.log</code></li>
+                            <li><code>access.log</code></li>
+                            <li><code>error.log</code></li>
+                        </ul>
+                        <p>
+                        Install is only produced the first time you run apache. Access gives you information on connections made to the server and tells you if the connection was successful, what pages were accessed, what IP address it was access by etc. Finally, the error log gives information on the errors that were produced by the server, this information given is what caused the error, time stamps etc.
+                        </p>
+                    
+                    <br/>
+                    
+                    <p>
+                        <strong>Log File Formats</strong>
+                        <br/>
+                        There are a couple of default log formats given by apache, but these can be changed depending on what you want to produce. The defaults logs are Common and Combined and are both used by apache to produce their own log files.
+                        <br/><br/>
+                        The format is as follows, along with a link to some useful format codes to potentially add:
+                        <br/><br/>
+                        <img src="images/alogs.png" />
+                        <br/>
+                        <a href="http://httpd.apache.org/docs/current/mod/mod_log_config.html" target="_new" >List of Log Format Options</a>
+                        <br/><br/>
+                        As for the default options, here is what each one does:
+                    </p>
+                    <ul>
+                        <li>%h - The remote hostname: IP Address of the request.</li>
+                        <li>%l - Remote logname: This will often produce a simple dash unless the id is present.</li>
+                        <li>%u - Remote User: If request was authenticated then user is returned.</li>
+                        <li>%t - Time: The time the request was recieved.</li>
+                        <li>%r - Request: The first line/type of request.</li>
+                        <li>%s - Status: The status of the request. ALternatively, %>s gives you the final status.</li>
+                        <li>%b - Bytes: Size of te response in bytes.</li>
+                        <li>%A - IP: The local IP Address.</li>
+                        <li>%H - The request Protocol.</li>
+                    </ul>
+                    
+                    <br/><br/>
+                    <p>
+                        <strong>Conditional Logging</strong>
+                        <br/><br/>
+                        Conditional logging is just as it sounds, you log information based something. This can be based on language, remote IP address, html code etc.
+                        <br/><br/>
+                        In order to start out a condition log you must access the <code>httpd.conf</code> file and head to the <code>IfModule log_config_module</code> tag. Then underneath the default log formats you can start your conditional logging. 
+                        <br/><br/>
+                        The following image shows the implementation of the if statements, I have chosen 3 conditions; First is based on access gained from the localhost, second is English logs and third is any GET method produced.
+                        <br/><br/>
+                        <img src="images/acondlog.png" />
+                    </p>
+                    
+                    <br/><br/>
+                    <p>
+                        <strong>Log File Rotation</strong>
+                        <br/><br/>
+                        Log file rotation enables the creation of new log files after a certain amount of time or based on log file size.
+                        <br/><br/>
+                        The format for how to create a rotating log file is as follows <code></code>. This can be changed around with different formats, like mentioned before.
+                        <br/><br/>
+                        Here are some useful tags to add to a filename of a rotated log and define the condition of the rotation:
+                    </p>
+                    <ul>
+                        <li>%A full weekday name</li>
+                        <li>%a 3-character weekday name</li>
+                        <li>%B full month name</li>
+                        <li>%d 2-digit day of month</li>
+                        <li>%H 2-digit hour (24 hour clock)</li> 
+                        <li>%I 2-digit hour (12 hour clock)</li>
+                        <li>%j 3-digit day of year</li>
+                        <li>%M 2-digit minute</li>
+                        <li>%m 2-digit month </li>
+                        <li>%S 2-digit second </li>
+                        <li>%Y 4-digit year</li>
+                        <li>%p am/pm of 12 hour clock (localized)</li>
+                        <li>%y 2-digit year</li>
+                    </ul>
+                    
+                </fieldset>
+                
+                <br/><br/>
+                
+                <fieldset>
+                    <legend>Adding Web Content</legend>
+                    <p>
+                        As previously mentioned, any web content can be added to apache through the <code>htdocs</code> folder. When setting up apache I simply added some static content to give an idea on how adding this works and to test that apache was running as intended.
+                        <br/><br/>
+                        Once I had configured apache to how I wanted, I then implemented a more dynamic feel to the server through the user of AJAX (Asynchronous JavaScript and XML), as stated in the name AJAX used JavaScript and XML to allow changes within a page. The most commonly used feature of AJAX is allowing for the ability to update part(s) of a web page without refreshing the whole page. This is beneficial in many ways.
+                        </p>
+                        <br/>
+                        <ul>
+                            <li>More user friendly as if there are many changes happening to a web page through the use of AJAX, having the page fully refresh every time can cause frustration to a user.</li>
+                            <li>Saves on bandwidth by reducing the amount of calls made to the server.</li>
+                           <li>Allows for dynamic content to aid in producing relevant/valid content.</li>
+                            <li>Is regarded as a web standard by W3C which makes it a fully supported implementation.</li>
+                        </ul>
+                        <p>
+                        <br/>
+                        Click <a href="http://jbm15.brighton.domains/ci347/AJAX/XML_AJAX.htm" target="_new" >here</a> to see AJAX in action!
+                        <br/><br/>
+                    </p>
+                </fieldset>
+            </article>
+    
+        
+        </section>
+    
+    </main>
+
+	<footer>
+        <p><a href="#top">Go to top</a></p>
+		<small>© 2020, James Beck McGovern.</small>
+	</footer>
+
+	</div>
+</body></html>
